@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "forced_chunk_generation",
+  "version": "${version}",
+  "name": "Forced Chunk Generation",
+  "description": "This mod allows to force generation of chunks",
+  "authors": [
+    "SandaruKasa"
+  ],
+  "contact": {
+    "homepage": "https://github.com/SandaruKasa/",
+    "sources": "https://github.com/SandaruKasa/"
+  },
+  "license": "AGPL-3.0-or-later",
+  "icon": "assets/forcedchunkgeneration/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "sandarukasa.minecraft.forcedchunkgeneration.fabric.Mod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  }
+}

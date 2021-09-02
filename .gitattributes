@@ -1,0 +1,8 @@
+*.java text
+*.json text
+*.gradle text
+*.md text
+*.properties text
+*.bar text eol=crlf
+gradlew text eol=lf
+*.jar binary
