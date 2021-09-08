@@ -1,0 +1,30 @@
+plugins {
+    id "fabric-loom" version "${versions_loom}"
+}
+
+archivesBaseName = project.archives_base_name
+group = project.maven_group
+
+dependencies {
+    // Null types were a mistake, let's try to minimize the damage with annotations
+    compileOnly "${project["artifacts_jetbrains_annotations"]}:${project["versions_jetbrains_annotations"]}"
+    minecraft "${project["artifacts_minecraft"]}:${project["versions_minecraft"]}"
+    mappings "${project["artifacts_yarn"]}:${project["versions_yarn"]}"
+    modImplementation "${project["artifacts_fabric_loader"]}:${project["versions_fabric_loader"]}"
+    modImplementation "${project["artifacts_fabric_api"]}:${project["versions_fabric_api"]}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+java {
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+}
